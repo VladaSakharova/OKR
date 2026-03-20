@@ -3,32 +3,47 @@
 <head>
 <meta charset="UTF-8">
 <title>Книги</title>
+<link rel="stylesheet" href="style.css">
 </head>
 
-<body bgcolor="#f0fff0">
+<body>
+
+<div class="navbar">
+    <a href="index.html">Головна</a>
+    <a href="books.html">Книги</a>
+    <a href="authors.html">Автори</a>
+    <a href="contacts.html">Контакти</a>
+</div>
+
+<div class="container">
 
 <h1>Книги нашої бібліотеки</h1>
 
 <h2>Жанри літератури</h2>
 
+<div class="card">
 <ul type="square">
 <li>Класична література</li>
 <li>Детективи</li>
 <li>Фантастика</li>
 <li>Роман</li>
 </ul>
+</div>
 
 <h2>Популярні книги</h2>
 
+<div class="card">
 <ol type="I">
 <li>Портрет Доріана Грея</li>
 <li>Гордість і упередження</li>
 <li>Східний експрес</li>
 <li>Гаррі Поттер</li>
 </ol>
+</div>
 
 <h2>Визначення</h2>
 
+<div class="card">
 <dl>
 <dt>Роман</dt>
 <dd>Великий художній твір з розгорнутим сюжетом.</dd>
@@ -37,18 +52,19 @@
 <dd>Установа, що збирає та зберігає книги.</dd>
 </dl>
 
-<h2>Книги бібліотеки</h2>
-
 <a href="https://images.squarespace-cdn.com/content/v1/534ad50ae4b04a5110f5ae72/f0cd330d-46de-4f2e-864a-31e2741cf6ae/Salle+Ovale%2C+BNF+Richelieu%2C+Henri+Labrouste%2C+1936.jpg" target="_blank">
-<img src="https://images.squarespace-cdn.com/content/v1/534ad50ae4b04a5110f5ae72/f0cd330d-46de-4f2e-864a-31e2741cf6ae/Salle+Ovale%2C+BNF+Richelieu%2C+Henri+Labrouste%2C+1936.jpg" width="150"></a>
-<img src="https://www.thisiscolossal.com/wp-content/uploads/2023/05/temple-of-books-6.jpg" width="300">
+<img src="https://images.squarespace-cdn.com/content/v1/534ad50ae4b04a5110f5ae72/f0cd330d-46de-4f2e-864a-31e2741cf6ae/Salle+Ovale%2C+BNF+Richelieu%2C+1936.jpg" width="150" height="100">
+</a>
+<img src="https://www.thisiscolossal.com/wp-content/uploads/2023/05/temple-of-books-6.jpg" width="300" height="200">
+</div>
 
-<h2 id="tablebooks">Таблиця книг</h2>
+<h2 id="tablebooks">Книги</h2>
 
+<div class="card">
 <table border="1">
 <caption>Книги бібліотеки</caption>
 
-<tr bgcolor="lightblue">
+<tr>
 <th>Портрет Доріана Грея</th>
 <th>Гордість і упередження</th>
 <th>Вбивство у Східному експресі</th>
@@ -63,10 +79,10 @@
 </tr>
 
 <tr>
-<td><a href="https://uabook.com.ua/book/portret-doriana-greya/">Читати</a></td>
-<td><a href="https://litarchive.in.ua/hordist-i-uperedzhenist-dzheyn-ostin">Читати</a></td>
-<td><a href="https://uabook.com.ua/book/vbyvstvo-u-skhidnomu-ekspresi/">Читати</a></td>
-<td><a href="https://reading.in.ua/garri-potter-i-filosofskyj-kamin-dzhoan-roling/">Читати</a></td>
+<td><a class="btn" href="https://uabook.com.ua/book/portret-doriana-greya/">Читати</a></td>
+<td><a class="btn" href="https://litarchive.in.ua/hordist-i-uperedzhenist-dzheyn-ostin">Читати</a></td>
+<td><a class="btn" href="https://uabook.com.ua/book/vbyvstvo-u-skhidnomu-ekspresi/">Читати</a></td>
+<td><a class="btn" href="https://reading.in.ua/garri-potter-i-filosofskyj-kamin-dzhoan-roling/">Читати</a></td>
 </tr>
 
 <tr>
@@ -77,8 +93,11 @@
 </tr>
 
 </table>
+</div>
 
-<p><a href="index.html">На головну</a></p>
+<a class="btn" href="index.html">На головну</a>
+
+</div>
 
 </body>
 </html>

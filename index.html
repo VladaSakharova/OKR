@@ -3,37 +3,43 @@
 <head>
 <meta charset="UTF-8">
 <title>Бібліотека</title>
+<link rel="stylesheet" href="style.css">
+
+<style>
+a {
+    color: green;
+}
+</style>
+
 </head>
 
-<body bgcolor="#f5f5dc" link="blue" vlink="purple" alink="red">
+<body link="blue" vlink="purple" alink="red">
+
+<div class="navbar">
+    <a href="index.html">Головна</a>
+    <a href="books.html">Книги</a>
+    <a href="authors.html">Автори</a>
+    <a href="contacts.html">Контакти</a>
+</div>
+
+<div class="container">
 
 <h1 id="top">Бібліотека</h1>
 
-<img src="https://miro.medium.com/1*6Jp3vJWe7VFlFHZ9WhSJng.jpeg" width="600">
+<div class="card">
+<img src="https://miro.medium.com/1*6Jp3vJWe7VFlFHZ9WhSJng.jpeg">
+</div>
 
 <h2>Новини бібліотеки</h2>
 
-<p>Наша <b>міська бібліотека</b> є важливим культурним центром міста. Тут кожен відвідувач може знайти <i>цікаву книгу</i>, провести час у тихій атмосфері
-та отримати доступ до великої кількості літератури</p>
-
-<p>Фонд бібліотеки постійно поповнюється новими книгами, а також проводяться літературні зустрічі, тематичні виставки та освітні заходи</p>
-
-<h2 id="about">Про бібліотеку</h2>
-
-<p>Бібліотека містить художню літературу, наукові книги, енциклопедії, підручники та сучасні бестселери українських і світових авторів</p>
-
-<a href="books.html#tablebooks">Перейти до таблиці книг</a>
-
-<h2>Навігація сайтом</h2>
-
-<p>
-<a href="books.html">Книги</a><br>
-<a href="authors.html">Автори</a><br>
-<a href="contacts.html">Контакти</a>
-</p>
+<div class="card">
+<p>Наша <b>міська <a href="https://uk.wikipedia.org/wiki/Бібліотека" target="_blank">бібліотека</a></b> є важливим культурним центром міста. Тут кожен відвідувач може знайти <i>цікаву книгу</i>, провести час у тихій атмосфері та отримати доступ до великої кількості літератури</p>
+<p style="color: purple; font-weight: bold;"> Фонд бібліотеки постійно поповнюється новими книгами, а також проводяться літературні зустрічі, тематичні виставки та освітні заходи</p>
+<p class="highlight">Бібліотека містить художню літературу, наукові книги, енциклопедії, підручники та сучасні бестселери українських і світових авторів</p>
+<a class="btn" href="books.html#tablebooks">До таблиці книг</a>
+</div>
 
 <p><a href="#top">Повернутись на початок сторінки</a></p>
-<p><a href="https://uk.wikipedia.org/wiki/Бібліотека" target="_blank">Що таке бібліотека?</a></p>
 
 </body>
 </html>
