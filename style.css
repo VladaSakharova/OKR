@@ -13,10 +13,13 @@ body {
 }
 /*Навігація*/
 .navbar {
-    background: #2c3e50;
+    background: #1f3348;
     padding: 15px;
     text-align: center;
     box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .navbar a {
@@ -24,7 +27,7 @@ body {
     text-decoration: none;
     margin: 0 10px;
     padding: 10px 18px;
-    background: #34495e;
+    background: #a1c1ed;
     border-radius: 8px;
     transition: 0.3s;
     display: inline-block;
@@ -57,14 +60,6 @@ h2 {
 img {
     max-width: 100%;
     border-radius: 10px;
-}
-
-a {
-    color: #2980b9;
-}
-
-a:hover {
-    color: #150d46;
 }
 
 ul, ol, dl {
@@ -113,7 +108,7 @@ tr:nth-child(even) {
     display: inline-block;
     margin-top: 10px;
     padding: 8px 15px;
-    background: #5179b1;
+    background: #91cff1;
     color: white;
     border-radius: 6px;
     text-decoration: none;
@@ -129,16 +124,78 @@ tr:nth-child(even) {
     color: red !important;
 }
 
-.card p {
-    font-size: 16px;
-    font-weight: bold;
-    color: #444;
+/*ЛР4*/
+.card img {
+    border: 3px solid #a1c1ed;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
 .card > table {
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
+.container > .btn{
+    background: #7d9dce;
+    color: white;
+}
+
 h2 + .card {
     border: 2px solid #121f68;
+}
+
+/*ЛР5*/
+a:visited {
+    color: #443e46;
+}
+
+a:link {
+    color: #7ab2eb;
+}
+
+a:hover {
+    color: #150d46;
+}
+
+a:active {
+    color: red;
+}
+
+.card p:first-child {
+    color: #150c69;
+}
+
+h1::before {
+    content: "📚 ";
+}
+
+h1::after {
+    content: " 📖";
+}
+
+.accent {
+    color: #505659;
+    background-color: #9fd4f5;
+    font-weight: bold;
+}
+
+.float-img {
+    float: left;
+    width: 280px;
+    margin: 0 20px 10px 0;
+    border-radius: 10px;
+}
+  
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #3498db;
+    color: white;
+    padding: 10px;
+    border-radius: 50%;
 }
