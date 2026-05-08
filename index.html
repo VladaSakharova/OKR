@@ -4,20 +4,38 @@
 <meta charset="UTF-8">
 <title>Бібліотека</title>
 <link rel="stylesheet" href="style.css">
+<script>
+    window.addEventListener("DOMContentLoaded", function () {
+        setTimeout(function () {
+            alert("👋 Ласкаво просимо до нашої бібліотеки!\nТут ви знайдете найкращі книги для душі й розвитку");
+        }, 300);
+        demonstrateDOMProperties();
+        addPar ();
+    });
+    
+</script>
 </head>
 
 <body>
 
+<div id="notice-banner" style="background:#3498db; color:white; text-align:center; padding:10px; font-size:0.95em;">
+        📢 Нові надходження: «Енеїда», «Кобзар», «Чорна рада»!
+    <button onclick="removeNotice()" style="margin-left:15px; background:white; color:#3498db; border:none; border-radius:4px; padding:3px 10px; cursor:pointer;">✕ Закрити</button>
+</div>
+    
+<div id="bg-countdown" style="display:none; background:#0f3460; color:#8bd8f7; text-align:center; padding:8px; font-size:0.9em;"></div>
+    
 <div class="navbar">
     <a href="index.html">Головна</a>
     <a href="books.html">Книги</a>
     <a href="authors.html">Автори</a>
     <a href="contacts.html">Контакти</a>
 </div>
+    
 
 <div class="container">
 
-<h1 id="top">Бібліотека</h1>
+<h1 id="main-heading">Бібліотека</h1>
 
 <div class="card">
 <img src="https://miro.medium.com/1*6Jp3vJWe7VFlFHZ9WhSJng.jpeg">
@@ -33,8 +51,24 @@
 <a class="btn" href="books.html#tablebooks">До таблиці книг</a>
 </div>
 
-<p class="btn"><a href="#top">Повернутись на початок сторінки</a></p>
-<a href="#top" class="to-top">↑</a>
+<h2>Рекомендації бібліотеки</h2>
+<div class="dynamic-section" id="dynamic-section"></div>
+<div style="text-align:center; margin-bottom:20px;">
+    <button id="add-content-btn" class="btn" onclick="addDynamicContent()" style="background:#27ae60;">➕ Показати книгу тижня</button>
+</div>
 
+<h2>Інтерактивні функції</h2>
+<div class="card" id="intcard" style="display:flex; flex-wrap:wrap; gap:12px; align-items:center;">
+    <button class="btn" onclick="dialogWithUser()" style="background:#1f3348;">💬 Діалог з читачем</button>
+    <button class="btn" onclick="showDeveloperInfo('Сахарова','Владислава')" style="background:#8e44ad;">👤 Про розробника</button>
+    <button class="btn" onclick="compareStrings('Класична література','Детективи')" style="background:#e67e22;">🔤 Порівняти рядки</button>
+    <button class="btn" onclick="changeBgFor30Sec()" style="background:#2c3e50;">🌙 Нічний режим (30 сек)</button>
+    <button class="btn" onclick="location.href='books.html'" style="background:#3498db;">📚 Перейти до книг</button>
+</div>
+
+<p class="btn" style="background: #6e85a2;"><a href="#main-heading">Повернутись на початок сторінки</a></p>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>

@@ -78,14 +78,54 @@
 <td>Відомі твори</td>
 <td>Серія книг про Гаррі Поттера</td>
 </tr>
-
 </table>
+</div>
+
+<h2 id="dom-demo-heading">Оскар Уайльд — детальніше</h2>
+<div class="card">
+    <p>Натисніть кнопку, щоб дізнатись більше про автора</p>
+    <button class="btn" onclick="changeDomDemo()" style="background:#1f3348;">📖 Дізнатись більше</button>
+    <div id="author-extra" style="display:none; margin-top:15px; border-top:2px solid #dfe9f3; padding-top:15px;">
+        <p><b>Повне ім'я:</b> Оскар Фінгал О'Флаерті Віллс Уайльд</p>
+        <p><b>Народився:</b> 16 жовтня 1854, Дублін, Ірландія</p>
+        <p><b>Помер:</b> 30 листопада 1900, Париж, Франція</p>
+        <p><b>Жанри:</b> роман, п'єса, казка, поезія, есе</p>
+        <p><b>Відомі твори:</b> «Портрет Доріана Грея», «Як важливо бути серйозним», «Щасливий принц»</p>
+    </div>
+</div>
+
+<h2>👤 Розробник сторінки</h2>
+<div class="card">
+        <p>У вікні можна побачити інформацію про автора цієї сторінки</p>
+        <button class="btn" onclick="showDeveloperInfo('Сахарова','Владислава')" style="background:#8e44ad;">Переглянути інформацію</button>
 </div>
 
 <a class="btn" href="index.html">На головну</a>
 <a href="#top" class="to-top">↑</a>
-
 </div>
 
+<script src="script.js"></script>
+<script>
+    function changeDomDemo() {
+    // getElementById — знаходимо заголовок
+    const heading = document.getElementById("dom-demo-heading");
+
+    // innerHTML — змінюємо заголовок з HTML-тегами
+    heading.innerHTML = "Оскар Уайльд <span style='color:#3498db; font-weight:normal;'>— ірландський письменник</span>";
+
+    // textContent 
+    console.log("textContent:", heading.textContent);
+
+    // outerHTML 
+    console.log("outerHTML:", heading.outerHTML);
+
+    // Показуємо приховану інформацію про автора
+    const extra = document.getElementById("author-extra");
+    extra.style.display = "block";
+    extra.style.animation = "fadeIn 0.4s ease";
+
+    alert("DOM-властивості продемонстровано!");
+}
+</script>
 </body>
 </html>

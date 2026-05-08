@@ -55,6 +55,12 @@ h2 {
     margin: 20px 0;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.card h3:first-child {
+    margin-top: 0;
 }
 
 img {
@@ -113,6 +119,9 @@ tr:nth-child(even) {
     border-radius: 6px;
     text-decoration: none;
     transition: 0.3s;
+    border: none;        
+    cursor: pointer;     
+    font-size: 0.95em;
 }
 
 .btn:hover {
@@ -198,4 +207,8 @@ h1::after {
     color: white;
     padding: 10px;
     border-radius: 50%;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
 }

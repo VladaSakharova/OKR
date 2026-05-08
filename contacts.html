@@ -33,10 +33,116 @@
 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d676619.4243848968!2d32.2698349!3d48.5132092!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d042adc3949de9%3A0xa2acead2180c9af0!2z0JrQuNGA0L7QstC-0LPRgNCw0LTRgdC60LDRjyDQvtCx0LvQsNGB0YLQvdCw0Y8g0YPQvdC40LLQtdGA0YHQsNC70YzQvdCw0Y8g0L3QsNGD0YfQvdCw0Y8g0LHQuNCx0LvQuNC-0YLQtdC60LAg0LjQvC4g0JQuINCYLiDQp9C40LbQtdCy0YHQutC-0LPQvg!5e0!3m2!1sru!2sua!4v1773356222497!5m2!1sru!2sua" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </div>
 
+<h2>Зворотній зв'язок</h2>
+<div class="card" id="feedback-section">
+    <p>Маєте питання до бібліотеки? Залиште запит — ми зв'яжемось з вами</p>
+    <button class="btn" id="feedback-btn" onclick="sendFeedback()" style="background:#1f3348; font-size:1em;">✉️ Написати нам</button>
+</div>
+
+<h2>Оголошення</h2>
+<div id="announcements-section" class="card">
+    <p style="color:#888; font-style:italic;" id="no-announcements">Оголошень поки немає.</p>
+</div>
+<div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom:20px;">
+    <button class="btn" onclick="addAnnouncement()" style="background:#27ae60;">➕ Додати оголошення</button>
+    <button class="btn" onclick="removeLastAnnouncement()" style="background:#e74c3c;">🗑 Видалити останнє</button>
+</div>
+
 <a class="btn" href="index.html">На головну</a>
 <a href="#top" class="to-top">↑</a>
 
 </div>
+
+<script src="script.js"></script>
+<script>
+    let announcementCount = 0;
+    const announcementTexts = [
+        "📅 Літературний вечір: 28 квітня о 18:00",
+        "📚 Нові надходження: 45 книг у відділі фантастики",
+        "🔇 Нагадуємо: тиша у читальному залі обов'язкова",
+        "🎉 День бібліотеки: 27 травня — вхід вільний!"
+    ];
+
+    function sendFeedback() {
+        let question = prompt("Введіть ваше питання або пропозицію для бібліотеки:");
+        if (question === null || question.trim() === "") {
+            alert("Запит скасовано. Чекаємо на ваше звернення!");
+            return;
+        }
+        let confirmed = confirm(`Ваше питання:\n«${question}»\n\nНадіслати до бібліотеки?`);
+        if (confirmed) {
+            const section = document.getElementById("feedback-section");
+
+            // createElement + createTextNode
+            const successMsg = document.createElement("div");
+            successMsg.style.cssText = "margin-top:15px; padding:12px; background:#eafaf1; border-left:4px solid #27ae60; border-radius:6px;";
+
+            const p = document.createElement("p");
+            p.style.color = "#1e8449";
+            const icon = document.createTextNode("✅ ");
+            const text = document.createTextNode(`Дякуємо! Питання «${question}» отримано. Відповімо на library@email.com`);
+
+            // append
+            p.append(icon, text);
+            successMsg.append(p);
+
+            // after — вставляємо після кнопки
+            const btn = document.getElementById("feedback-btn");
+            btn.after(successMsg);
+
+            alert("✅ Ваш запит надіслано! Дякуємо за звернення");
+        } else {
+            alert("Надсилання скасовано");
+        }
+    }
+
+    function addAnnouncement() {
+        if (announcementCount >= announcementTexts.length) {
+        alert("📭 Нових оголошень наразі немає. Завітайте пізніше!");
+        return;
+        }
+
+        const container = document.getElementById("announcements-section");
+        const noAnn = document.getElementById("no-announcements");
+        if (noAnn) noAnn.remove();
+
+        // createElement
+        const item = document.createElement("div");
+        item.style.cssText = "padding:10px; margin:8px 0; background:#eaf4fb; border-left:4px solid #3498db; border-radius:6px;";
+        item.className = "announcement-item";
+
+        const span = document.createElement("span");
+        span.textContent = announcementTexts[announcementCount % announcementTexts.length];
+        announcementCount++;
+
+        item.append(span);
+
+        // prepend — нові оголошення зверху
+        container.prepend(item);
+    }
+
+    function removeLastAnnouncement() {
+        const container = document.getElementById("announcements-section");
+        const items = container.querySelectorAll(".announcement-item");
+
+        if (items.length === 0) {
+            alert("Оголошень немає для видалення.");
+            return;
+        }
+
+        // node.remove()
+        items[0].remove();
+        announcementCount--;
+
+        if (container.querySelectorAll(".announcement-item").length === 0) {
+            const ph = document.createElement("p");
+            ph.id = "no-announcements";
+            ph.style.cssText = "color:#888; font-style:italic;";
+            ph.textContent = "Оголошень поки немає";
+            container.append(ph);
+        }
+    }
+</script>
 
 </body>
 </html>
