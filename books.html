@@ -7,94 +7,111 @@
 <script>
     document.write('<p style="text-align:center;color:#3498db;font-style:italic;">📖 Завантаження каталогу книг...</p>');
 </script>
+<style>
+    #genre-filter-menu button {
+        padding: 8px 16px;
+        margin: 4px;
+        border: none;
+        border-radius: 6px;
+        background: #a1c1ed;
+        color: white;
+        cursor: pointer;
+        font-size: 0.9em;
+        font-family: 'Segoe UI', Arial, sans-serif;
+        transition: 0.3s;
+    }
+    #genre-filter-menu button:hover {
+        background: #3498db;
+    }
+    #genre-filter-menu button.active-filter {
+        background: #1f3348;
+    }
+</style>
 </head>
-
 <body>
-
 <div class="navbar">
     <a href="index.html">Головна</a>
     <a href="books.html">Книги</a>
     <a href="authors.html">Автори</a>
     <a href="contacts.html">Контакти</a>
 </div>
-
 <div class="container">
-
 <h1 id="top">Книги нашої бібліотеки</h1>
 
 <h2>Жанри літератури</h2>
-
 <div class="card">
-<ul>
-<li>Класична література</li>
-<li>Детективи</li>
-<li>Фантастика</li>
-<li>Роман</li>
-</ul>
+    <ul>
+        <li>Класична література</li>
+        <li>Детективи</li>
+        <li>Фантастика</li>
+        <li>Роман</li>
+    </ul>
 </div>
 
+<!--
+  ЗАВДАННЯ 2а — Список популярних книг із делегуванням подій
+  id="popular-list" — батьківський <ol>.
+-->
 <h2>Популярні книги</h2>
-
-<div class="card">
-<ol>
-<li>Портрет Доріана Грея</li>
-<li>Гордість і упередження</li>
-<li>Східний експрес</li>
-<li>Гаррі Поттер</li>
+<p style="color:#888; font-size:0.9em; margin-bottom:5px;">Натисніть на книгу щоб обрати її</p>
+<ol id="popular-list" class="card" style="cursor:pointer;">
+    <li>Портрет Доріана Грея</li>
+    <li>Гордість і упередження</li>
+    <li>Вбивство у Східному експресі</li>
+    <li>Гаррі Поттер</li>
 </ol>
-</div>
 
 <h2>Визначення</h2>
-
 <div class="card">
-<dl>
-<dt>Роман</dt>
-<dd>Великий художній твір з розгорнутим сюжетом.</dd>
+    <dl>
+        <dt>Роман</dt>
+        <dd>Великий художній твір з розгорнутим сюжетом.</dd>
+        <dt>Бібліотека</dt>
+        <dd>Установа, що збирає та зберігає книги.</dd>
+    </dl>
+    <a href="https://images.squarespace-cdn.com/content/v1/534ad50ae4b04a5110f5ae72/f0cd330d-46de-4f2e-864a-31e2741cf6ae/Salle+Ovale%2C+BNF+Richelieu%2C+Henri+Labrouste%2C+1936.jpg" target="_blank">
+        <img src="https://images.squarespace-cdn.com/content/v1/534ad50ae4b04a5110f5ae72/f0cd330d-46de-4f2e-864a-31e2741cf6ae/Salle+Ovale%2C+BNF+Richelieu%2C+1936.jpg" width="150" height="100">
+    </a>
+    <img src="https://www.thisiscolossal.com/wp-content/uploads/2023/05/temple-of-books-6.jpg" width="300" height="200">
+</div>
 
-<dt>Бібліотека</dt>
-<dd>Установа, що збирає та зберігає книги.</dd>
-</dl>
-
-<a href="https://images.squarespace-cdn.com/content/v1/534ad50ae4b04a5110f5ae72/f0cd330d-46de-4f2e-864a-31e2741cf6ae/Salle+Ovale%2C+BNF+Richelieu%2C+Henri+Labrouste%2C+1936.jpg" target="_blank">
-<img src="https://images.squarespace-cdn.com/content/v1/534ad50ae4b04a5110f5ae72/f0cd330d-46de-4f2e-864a-31e2741cf6ae/Salle+Ovale%2C+BNF+Richelieu%2C+1936.jpg" width="150" height="100">
-</a>
-<img src="https://www.thisiscolossal.com/wp-content/uploads/2023/05/temple-of-books-6.jpg" width="300" height="200">
+<h2>Фільтр за жанром</h2>
+<div id="genre-filter-menu" class="card">
+    <button data-action="filterAll">📚 Всі книги</button>
+    <button data-action="filterRomance">💕 Романи</button>
+    <button data-action="filterDetective">🔍 Детективи</button>
+    <button data-action="filterFantasy">🚀 Фантастика</button>
 </div>
 
 <h2 id="tablebooks">Книги</h2>
-
 <div class="card">
-<table border="1">
-<caption>Книги бібліотеки</caption>
-
-<tr>
-<th>Портрет Доріана Грея</th>
-<th>Гордість і упередження</th>
-<th>Вбивство у Східному експресі</th>
-<th>Гаррі Поттер</th>
-</tr>
-
-<tr>
-<td><img src="https://static.yakaboo.ua/media/cloudflare/product/webp/600x840/6/3/631_5.jpg" width="80"></td>
-<td><img src="https://nashformat.ua/files/products/gordist-i-uperedzhennya-ksd-952988.800x800.png" width="80"></td>
-<td><img src="https://nashformat.ua/files/products/706728.800x800.jpg" width="80"></td>
-<td><img src="https://upload.wikimedia.org/wikipedia/uk/6/6c/HPandPhStone_Ukr.jpg" width="80"></td>
-</tr>
-
-<tr>
-<td><a class="btn" href="https://uabook.com.ua/book/portret-doriana-greya/">Читати</a></td>
-<td><a class="btn" href="https://litarchive.in.ua/hordist-i-uperedzhenist-dzheyn-ostin">Читати</a></td>
-<td><a class="btn" href="https://uabook.com.ua/book/vbyvstvo-u-skhidnomu-ekspresi/">Читати</a></td>
-<td><a class="btn" href="https://reading.in.ua/garri-potter-i-filosofskyj-kamin-dzhoan-roling/">Читати</a></td>
-</tr>
-
-<tr>
-<td>Художній роман</td>
-<td>Художній роман</td>
-<td>Детектив</td>
-<td>Фантастика</td>
-</tr>
-</table>
+    <table border="1" id="books-table">
+        <caption>Книги бібліотеки</caption>
+        <tr>
+            <th>Портрет Доріана Грея</th>
+            <th>Гордість і упередження</th>
+            <th>Вбивство у Східному експресі</th>
+            <th>Гаррі Поттер</th>
+        </tr>
+        <tr>
+            <td><img src="https://static.yakaboo.ua/media/cloudflare/product/webp/600x840/6/3/631_5.jpg" width="80"></td>
+            <td><img src="https://nashformat.ua/files/products/gordist-i-uperedzhennya-ksd-952988.800x800.png" width="80"></td>
+            <td><img src="https://nashformat.ua/files/products/706728.800x800.jpg" width="80"></td>
+            <td><img src="https://upload.wikimedia.org/wikipedia/uk/6/6c/HPandPhStone_Ukr.jpg" width="80"></td>
+        </tr>
+        <tr>
+            <td><a class="btn" href="https://uabook.com.ua/book/portret-doriana-greya/">Читати</a></td>
+            <td><a class="btn" href="https://litarchive.in.ua/hordist-i-uperedzhenist-dzheyn-ostin">Читати</a></td>
+            <td><a class="btn" href="https://uabook.com.ua/book/vbyvstvo-u-skhidnomu-ekspresi/">Читати</a></td>
+            <td><a class="btn" href="https://reading.in.ua/garri-potter-i-filosofskyj-kamin-dzhoan-roling/">Читати</a></td>
+        </tr>
+        <tr id="genre-row">
+            <td data-genre="romance">Художній роман</td>
+            <td data-genre="romance">Художній роман</td>
+            <td data-genre="detective">Детектив</td>
+            <td data-genre="fantasy">Фантастика</td>
+        </tr>
+    </table>
 </div>
 
 <h2>👤 Хочете дізнатись про авторів книг?</h2>
@@ -103,10 +120,223 @@
     <button class="btn" onclick="location.href='authors.html'" style="background:#8e44ad; margin-top:10px;">Інформація про авторів</button>
 </div>
 
-<a class="btn" href="index.html">На головну</a>
-<a href="#top" class="to-top">↑</a>
+
+<!-- Drag-and-drop через mousedown, mousemove, mouseup -->
+<h2>📚 Розставте книги на полицях</h2>
+<p style="color:#888; font-size:0.9em; margin-bottom:5px;">Перетягуйте книги з черги на потрібну полицю</p>
+
+<div style="display:flex; gap:20px; flex-wrap:wrap; align-items:flex-start; margin:20px 0;">
+
+    <!-- Черга книг -->
+    <div style="flex:1; min-width:200px;">
+        <h3 style="color:#1f3348; margin-bottom:8px;">📋 Черга книг</h3>
+        <div id="book-queue" style="min-height:200px; background:#f8f9fa; border:2px dashed #a1c1ed; border-radius:10px; padding:10px;">
+            <div class="draggable-book" style="padding:10px 14px; margin:6px 0; background:white; border-left:4px solid #3498db; border-radius:6px; cursor:grab; user-select:none; box-shadow:0 2px 6px rgba(0,0,0,0.1); box-sizing:border-box;">
+                📗 Кобзар — Шевченко
+            </div>
+            <div class="draggable-book" style="padding:10px 14px; margin:6px 0; background:white; border-left:4px solid #e67e22; border-radius:6px; cursor:grab; user-select:none; box-shadow:0 2px 6px rgba(0,0,0,0.1); box-sizing:border-box;">
+                📘 Енеїда — Котляревський
+            </div>
+            <div class="draggable-book" style="padding:10px 14px; margin:6px 0; background:white; border-left:4px solid #27ae60; border-radius:6px; cursor:grab; user-select:none; box-shadow:0 2px 6px rgba(0,0,0,0.1); box-sizing:border-box;">
+                📙 Тіні забутих предків — Коцюбинський
+            </div>
+            <div class="draggable-book" style="padding:10px 14px; margin:6px 0; background:white; border-left:4px solid #8e44ad; border-radius:6px; cursor:grab; user-select:none; box-shadow:0 2px 6px rgba(0,0,0,0.1); box-sizing:border-box;">
+                📕 Чорна рада — Куліш
+            </div>
+        </div>
+    </div>
+
+    <!-- Полиці -->
+    <div style="flex:2; min-width:260px;">
+        <h3 style="color:#1f3348; margin-bottom:8px;">🗄 Полиці бібліотеки</h3>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+            <div class="bookshelf" data-shelf="Українська класика"
+                 style="min-height:80px; background:#fff8e1; border:2px dashed #f0ad4e; border-radius:10px; padding:10px;">
+                <span class="shelf-label" style="color:#aaa; font-size:0.85em; pointer-events:none;">📁 Українська класика</span>
+            </div>
+            <div class="bookshelf" data-shelf="Поезія"
+                 style="min-height:80px; background:#e8f8f5; border:2px dashed #27ae60; border-radius:10px; padding:10px;">
+                <span class="shelf-label" style="color:#aaa; font-size:0.85em; pointer-events:none;">📁 Поезія</span>
+            </div>
+            <div class="bookshelf" data-shelf="Проза"
+                 style="min-height:80px; background:#fdf2f8; border:2px dashed #8e44ad; border-radius:10px; padding:10px;">
+                <span class="shelf-label" style="color:#aaa; font-size:0.85em; pointer-events:none;">📁 Проза</span>
+            </div>
+        </div>
+    </div>
 
 </div>
+
+<div id="drag-status" style="margin-top:4px; margin-bottom:20px; padding:10px 14px; background:#eaf4fb; border-radius:8px; color:#1f3348; font-size:0.9em; display:none;"></div>
+
+<a class="btn" href="index.html">На головну</a>
+<a href="#top" class="to-top">↑</a>
+</div>
 <script src="script.js"></script>
+<script>
+document.querySelectorAll(".draggable-book").forEach(book => {
+    
+    book.onmousedown = function (event) {
+    
+            const rect = book.getBoundingClientRect();
+    
+            // запам'ятовуємо зміщення курсора
+            const shiftX = event.clientX - rect.left;
+            const shiftY = event.clientY - rect.top;
+    
+            // фіксуємо поточний розмір
+            const fixedWidth = rect.width;
+            const fixedHeight = rect.height;
+    
+            document.body.append(book);
+    
+            
+            book.style.position = "absolute";
+            book.style.zIndex = "1000";
+            book.style.width = fixedWidth + "px";
+            book.style.height = fixedHeight + "px";
+            book.style.boxSizing = "border-box";
+    
+        
+            book.style.cursor = "grabbing";
+            book.style.boxShadow = "0 10px 25px rgba(0,0,0,0.2)";
+    
+            // функція переміщення
+            function moveAt(pageX, pageY) {
+                book.style.left = pageX - shiftX + "px";
+                book.style.top = pageY - shiftY + "px";
+            }
+    
+            moveAt(event.pageX, event.pageY);
+    
+            const status = document.getElementById("drag-status");
+            if (status) {
+                status.style.display = "block";
+                status.style.background = "#eaf4fb";
+                status.style.borderLeft = "";
+                status.textContent = `🖱 Перетягування: «${book.textContent.trim()}»`;
+            }
+    
+            function onMouseMove(event) {
+    
+                moveAt(event.pageX, event.pageY);
+    
+                // підсвічування полиць
+                document.querySelectorAll(".bookshelf").forEach(shelf => {
+    
+                    const shelfRect = shelf.getBoundingClientRect();
+    
+                    const isOver =
+                        event.clientX >= shelfRect.left &&
+                        event.clientX <= shelfRect.right &&
+                        event.clientY >= shelfRect.top &&
+                        event.clientY <= shelfRect.bottom;
+    
+                    if (isOver) {
+                        shelf.style.background = "#dff0d8";
+                        shelf.style.borderStyle = "solid";
+                    } else {
+                        shelf.style.background = "";
+                        shelf.style.borderStyle = "dashed";
+                    }
+                });
+            }
+    
+            document.addEventListener("mousemove", onMouseMove)
+    
+            book.onmouseup = function (event) {
+    
+            document.removeEventListener("mousemove", onMouseMove
+                );
+    
+                let dropped = false;
+    
+                document.querySelectorAll(".bookshelf")
+                    .forEach(shelf => {
+    
+                    const shelfRect = shelf.getBoundingClientRect();
+    
+                    const isOver =
+                        event.clientX >= shelfRect.left &&
+                        event.clientX <= shelfRect.right &&
+                        event.clientY >= shelfRect.top &&
+                        event.clientY <= shelfRect.bottom;
+    
+                    if (isOver && !dropped) {
+    
+                        const label = shelf.querySelector(".shelf-label");
+    
+                        if (label) label.remove();
+    
+                        book.style.position = "static";
+                        book.style.left = "";
+                        book.style.top = "";
+                        book.style.zIndex = "";
+                        book.style.cursor = "grab";
+                        book.style.boxShadow = "0 2px 6px rgba(0,0,0,0.1)";
+
+                        shelf.append(book);
+    
+                        shelf.style.background = "";
+                        shelf.style.borderStyle = "dashed";
+    
+                        if (status) {
+                            status.textContent = `✅ «${book.textContent.trim()}» розміщено на полиці «${shelf.dataset.shelf}»`;
+                            status.style.background = "#eafaf1";
+                            status.style.borderLeft = "4px solid #27ae60";
+                        }
+    
+                        dropped = true;
+    
+                        console.log(
+                            "mouseup → книга на полиці:",
+                            shelf.dataset.shelf
+                        );
+                    }
+                });
+    
+                // якщо не поклали на полицю
+                if (!dropped) {
+    
+                    const queue = document.getElementById("book-queue");
+    
+                    book.style.position = "static";
+                    book.style.left = "";
+                    book.style.top = "";
+                    book.style.zIndex = "";
+    
+                    book.style.cursor = "grab";
+                    book.style.boxShadow = "0 2px 6px rgba(0,0,0,0.1)";
+    
+                    queue.append(book);
+    
+                    if (status) {
+                        status.textContent = "↩️ Відпустіть книгу на полиці";
+                        status.style.background = "#fef9e7";
+                        status.style.borderLeft = "4px solid #f0ad4e";
+                    }
+    
+                    console.log( "mouseup → книга повернулась");
+                }
+    
+                // очищаємо стилі полиць
+                document.querySelectorAll(".bookshelf")
+                    .forEach(shelf => {
+    
+                    shelf.style.background = "";
+                    shelf.style.borderStyle = "dashed";
+                });
+    
+                // видаляємо обробник
+                book.onmouseup = null;
+            };
+    
+            // вимикає стандартний drag браузера
+            book.ondragstart = function () {
+                return false;
+            };
+        };
+    });
+    </script>
 </body>
 </html>

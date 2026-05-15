@@ -4,81 +4,85 @@
 <meta charset="UTF-8">
 <title>Автори</title>
 <link rel="stylesheet" href="style.css">
+<style>
+    .author-row {
+        cursor: pointer;
+        transition: background 0.2s;
+    }
+    .author-row:hover {
+        background: #eaf4fb;
+    }
+    .author-row.selected {
+        background: #d6eaf8;
+    }
+    #author-info-box {
+        display: none;
+        padding: 15px;
+        background: #eaf4fb;
+        border-left: 4px solid #3498db;
+        border-radius: 8px;
+        margin-top: 15px;
+        animation: fadeIn 0.3s ease;
+    }
+</style>
 </head>
-
 <body>
-
 <div class="navbar">
     <a href="index.html">Головна</a>
     <a href="books.html">Книги</a>
     <a href="authors.html">Автори</a>
     <a href="contacts.html">Контакти</a>
 </div>
-
 <div class="container">
-
 <h1 id="top">Автори бібліотеки</h1>
 
+<p style="color:#888; font-size:0.9em; margin-bottom:5px;">Натисніть на рядок щоб дізнатись більше про автора</p>
 <div class="card">
-<table border="1" cellpadding="10" cellspacing="5">
-
-<colgroup>
-<col span="1" style="background-color:#f0f8ff">
-<col span="2">
-</colgroup>
-
-<tr><th colspan="3">Відомі письменники</th></tr>
-
-<tr>
-<th>Фото</th>
-<th>Ім'я</th>
-<th>Інформація</th>
-</tr>
-
-<tr>
-<td rowspan="2"><img src="https://static.wixstatic.com/media/cfe84c_c43095fbb19c49bb8ccb845830d31db9~mv2.jpg" width="120"></td>
-<td>Оскар Уальд</td>
-<td>Ірландський письменник</td>
-</tr>
-
-<tr>
-<td>Відомі твори</td>
-<td>Портрет Доріана Грея</td>
-</tr>
-
-<tr>
-<td rowspan="2"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Джейн_Остин.jpg" width="120"></td>
-<td>Джейн Остін</td>
-<td>Англійська письменниця, авторка класичних романів.</td>
-</tr>
-
-<tr>
-<td>Відомі твори</td>
-<td>Гордість і упередження</td>
-</tr>
-
-<tr>
-<td rowspan="2"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0qmRjj9NI1pbVwKoEAqPj0vwsE5p9y8PAKA&s" width="120"></td>
-<td>Агата Крісті</td>
-<td>Англійська письменниця, авторка детективів</td>
-</tr>
-
-<tr>
-<td>Відомі твори</td>
-<td>Вбивство у східному експресі</td>
-</tr>
-
-<tr>
-<td rowspan="2"><img src="https://imglife.pravda.com.ua/images/doc/f/1/f1baebf-j-k-rowling-harry-potter-read-online-ukrainian.jpg" width="120"></td>
-<td>Джоан Роулінг</td>
-<td>Британська письменниця, сценаристка</td>
-</tr>
-
-<tr>
-<td>Відомі твори</td>
-<td>Серія книг про Гаррі Поттера</td>
-</tr>
-</table>
+    <table border="1" cellpadding="10" cellspacing="5" id="authors-table">
+        <colgroup>
+            <col span="1" style="background-color:#f0f8ff">
+            <col span="2">
+        </colgroup>
+        <tr><th colspan="3">Відомі письменники</th></tr>
+        <tr><th>Фото</th><th>Ім'я</th><th>Інформація</th></tr>
+        <tr class="author-row" data-author="wilde">
+            <td rowspan="2"><img src="https://static.wixstatic.com/media/cfe84c_c43095fbb19c49bb8ccb845830d31db9~mv2.jpg" width="120"></td>
+            <td>Оскар Уальд</td>
+            <td>Ірландський письменник</td>
+        </tr>
+        <tr class="author-row" data-author="wilde">
+            <td>Відомі твори</td>
+            <td>Портрет Доріана Грея</td>
+        </tr>
+        <tr class="author-row" data-author="austen">
+            <td rowspan="2"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Джейн_Остин.jpg" width="120"></td>
+            <td>Джейн Остін</td>
+            <td>Англійська письменниця, авторка класичних романів.</td>
+        </tr>
+        <tr class="author-row" data-author="austen">
+            <td>Відомі твори</td>
+            <td>Гордість і упередження</td>
+        </tr>
+        <tr class="author-row" data-author="christie">
+            <td rowspan="2"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0qmRjj9NI1pbVwKoEAqPj0vwsE5p9y8PAKA&s" width="120"></td>
+            <td>Агата Крісті</td>
+            <td>Англійська письменниця, авторка детективів</td>
+        </tr>
+        <tr class="author-row" data-author="christie">
+            <td>Відомі твори</td>
+            <td>Вбивство у східному експресі</td>
+        </tr>
+        <tr class="author-row" data-author="rowling">
+            <td rowspan="2"><img src="https://imglife.pravda.com.ua/images/doc/f/1/f1baebf-j-k-rowling-harry-potter-read-online-ukrainian.jpg" width="120"></td>
+            <td>Джоан Роулінг</td>
+            <td>Британська письменниця, сценаристка</td>
+        </tr>
+        <tr class="author-row" data-author="rowling">
+            <td>Відомі твори</td>
+            <td>Серія книг про Гаррі Поттера</td>
+        </tr>
+    </table>
+    <div id="author-info-box"></div>
 </div>
 
 <h2 id="dom-demo-heading">Оскар Уайльд — детальніше</h2>
@@ -96,36 +100,13 @@
 
 <h2>👤 Розробник сторінки</h2>
 <div class="card">
-        <p>У вікні можна побачити інформацію про автора цієї сторінки</p>
-        <button class="btn" onclick="showDeveloperInfo('Сахарова','Владислава')" style="background:#8e44ad;">Переглянути інформацію</button>
+    <p>У вікні можна побачити інформацію про автора цієї сторінки</p>
+    <button class="btn" onclick="showDeveloperInfo('Сахарова','Владислава')" style="background:#8e44ad;">Переглянути інформацію</button>
 </div>
 
 <a class="btn" href="index.html">На головну</a>
 <a href="#top" class="to-top">↑</a>
 </div>
-
 <script src="script.js"></script>
-<script>
-    function changeDomDemo() {
-    // getElementById — знаходимо заголовок
-    const heading = document.getElementById("dom-demo-heading");
-
-    // innerHTML — змінюємо заголовок з HTML-тегами
-    heading.innerHTML = "Оскар Уайльд <span style='color:#3498db; font-weight:normal;'>— ірландський письменник</span>";
-
-    // textContent 
-    console.log("textContent:", heading.textContent);
-
-    // outerHTML 
-    console.log("outerHTML:", heading.outerHTML);
-
-    // Показуємо приховану інформацію про автора
-    const extra = document.getElementById("author-extra");
-    extra.style.display = "block";
-    extra.style.animation = "fadeIn 0.4s ease";
-
-    alert("DOM-властивості продемонстровано!");
-}
-</script>
 </body>
 </html>

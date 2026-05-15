@@ -4,33 +4,89 @@
 <meta charset="UTF-8">
 <title>Контакти</title>
 <link rel="stylesheet" href="style.css">
+<style>
+    .contact-item {
+        padding: 10px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background 0.2s;
+        margin-bottom: 6px;
+        list-style: none;
+    }
+    .contact-item:hover {
+        background: #eaf4fb;
+    }
+    .contact-item.copied {
+        background: #eafaf1;
+        border-left: 4px solid #27ae60;
+    }
+    #contacts-menu button {
+        padding: 9px 18px;
+        margin: 4px;
+        border: none;
+        border-radius: 6px;
+        background: #a1c1ed;
+        color: white;
+        cursor: pointer;
+        font-size: 0.9em;
+        font-family: 'Segoe UI', Arial, sans-serif;
+        transition: 0.3s;
+    }
+    #contacts-menu button:hover {
+        background: #3498db;
+    }
+    .behavior-highlight {
+        background: #fff3cd !important;
+        border-left: 4px solid #f0ad4e !important;
+        transition: background 0.3s;
+    }
+</style>
 </head>
-
 <body>
-
 <div class="navbar">
     <a href="index.html">Головна</a>
     <a href="books.html">Книги</a>
     <a href="authors.html">Автори</a>
     <a href="contacts.html">Контакти</a>
 </div>
-
 <div class="container">
-
 <h1 id="top">Контакти бібліотеки</h1>
 
-<div class="card">
-<p><b>Адреса:</b> <a href="https://uk.wikipedia.org/wiki/Бібліотека">м. Кропивницький</a> м. Кропивницький, вул. Велика Перспективна 24</p>
+<p style="color:#888; font-size:0.9em; margin-bottom:5px;">Натисніть на контакт щоб скопіювати його</p>
+<ul id="contacts-list" class="card" style="padding:10px;">
+    <li class="contact-item" data-copy="м. Кропивницький, вул. Велика Перспективна 24">
+        📍 <b>Адреса:</b> м. Кропивницький, вул. Велика Перспективна 24
+    </li>
+    <li class="contact-item" data-copy="+380661857696">
+        📞 <b>Телефон:</b> +380661857696
+    </li>
+    <li class="contact-item" data-copy="library@email.com">
+        ✉️ <b>Email:</b> library@email.com
+    </li>
+</ul>
 
-<p><b>Телефон:</b> +380661857696</p>
+<h2>Дії з картою</h2>
+<div id="contacts-menu" class="card">
+    <button data-action="zoomIn">🔍 Збільшити</button>
+    <button data-action="zoomOut">🔎 Зменшити</button>
+    <button data-action="showInfo">ℹ️ Інформація</button>
+    <button data-action="goToIndex">🏠 На головну</button>
+</div>
 
-<p><b>Email:</b> library@email.com</p>
+
+<div data-behavior="toggle-map"
+     style="display:inline-block; margin-bottom:10px; padding:10px 18px;
+            background:#eaf4fb; border-left:4px solid #3498db;
+            border-radius:8px; cursor:pointer;">
+    🗺️ Показати / приховати карту
 </div>
 
 <h2>Мапа</h2>
-
 <div class="card">
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d676619.4243848968!2d32.2698349!3d48.5132092!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d042adc3949de9%3A0xa2acead2180c9af0!2z0JrQuNGA0L7QstC-0LPRgNCw0LTRgdC60LDRjyDQvtCx0LvQsNGB0YLQvdCw0Y8g0YPQvdC40LLQtdGA0YHQsNC70YzQvdCw0Y8g0L3QsNGD0YfQvdCw0Y8g0LHQuNCx0LvQuNC-0YLQtdC60LAg0LjQvC4g0JQuINCYLiDQp9C40LbQtdCy0YHQutC-0LPQvg!5e0!3m2!1sru!2sua!4v1773356222497!5m2!1sru!2sua" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <iframe id="library-map"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d676619.4243848968!2d32.2698349!3d48.5132092!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d042adc3949de9%3A0xa2acead2180c9af0!2z0JrQuNGA0L7QstC-0LPRgNCw0LTRgdC60LDRjyDQvtCx0LvQsNGB0YLQvdCw0Y8g0YPQvdC40LLQtdGA0YHQsNC70YzQvdCw0Y8g0L3QsNGD0YfQvdCw0Y8g0LHQuNCx0LvQuNC-0YLQtdC60LAg0LjQvC4g0JQuINCYLiDQp9C40LbQtdCy0YHQutC-0LPQvg!5e0!3m2!1sru!2sua!4v1773356222497!5m2!1sru!2sua"
+        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy">
+    </iframe>
 </div>
 
 <h2>Зворотній зв'язок</h2>
@@ -50,99 +106,7 @@
 
 <a class="btn" href="index.html">На головну</a>
 <a href="#top" class="to-top">↑</a>
-
 </div>
-
 <script src="script.js"></script>
-<script>
-    let announcementCount = 0;
-    const announcementTexts = [
-        "📅 Літературний вечір: 28 квітня о 18:00",
-        "📚 Нові надходження: 45 книг у відділі фантастики",
-        "🔇 Нагадуємо: тиша у читальному залі обов'язкова",
-        "🎉 День бібліотеки: 27 травня — вхід вільний!"
-    ];
-
-    function sendFeedback() {
-        let question = prompt("Введіть ваше питання або пропозицію для бібліотеки:");
-        if (question === null || question.trim() === "") {
-            alert("Запит скасовано. Чекаємо на ваше звернення!");
-            return;
-        }
-        let confirmed = confirm(`Ваше питання:\n«${question}»\n\nНадіслати до бібліотеки?`);
-        if (confirmed) {
-            const section = document.getElementById("feedback-section");
-
-            // createElement + createTextNode
-            const successMsg = document.createElement("div");
-            successMsg.style.cssText = "margin-top:15px; padding:12px; background:#eafaf1; border-left:4px solid #27ae60; border-radius:6px;";
-
-            const p = document.createElement("p");
-            p.style.color = "#1e8449";
-            const icon = document.createTextNode("✅ ");
-            const text = document.createTextNode(`Дякуємо! Питання «${question}» отримано. Відповімо на library@email.com`);
-
-            // append
-            p.append(icon, text);
-            successMsg.append(p);
-
-            // after — вставляємо після кнопки
-            const btn = document.getElementById("feedback-btn");
-            btn.after(successMsg);
-
-            alert("✅ Ваш запит надіслано! Дякуємо за звернення");
-        } else {
-            alert("Надсилання скасовано");
-        }
-    }
-
-    function addAnnouncement() {
-        if (announcementCount >= announcementTexts.length) {
-        alert("📭 Нових оголошень наразі немає. Завітайте пізніше!");
-        return;
-        }
-
-        const container = document.getElementById("announcements-section");
-        const noAnn = document.getElementById("no-announcements");
-        if (noAnn) noAnn.remove();
-
-        // createElement
-        const item = document.createElement("div");
-        item.style.cssText = "padding:10px; margin:8px 0; background:#eaf4fb; border-left:4px solid #3498db; border-radius:6px;";
-        item.className = "announcement-item";
-
-        const span = document.createElement("span");
-        span.textContent = announcementTexts[announcementCount % announcementTexts.length];
-        announcementCount++;
-
-        item.append(span);
-
-        // prepend — нові оголошення зверху
-        container.prepend(item);
-    }
-
-    function removeLastAnnouncement() {
-        const container = document.getElementById("announcements-section");
-        const items = container.querySelectorAll(".announcement-item");
-
-        if (items.length === 0) {
-            alert("Оголошень немає для видалення.");
-            return;
-        }
-
-        // node.remove()
-        items[0].remove();
-        announcementCount--;
-
-        if (container.querySelectorAll(".announcement-item").length === 0) {
-            const ph = document.createElement("p");
-            ph.id = "no-announcements";
-            ph.style.cssText = "color:#888; font-style:italic;";
-            ph.textContent = "Оголошень поки немає";
-            container.append(ph);
-        }
-    }
-</script>
-
 </body>
 </html>

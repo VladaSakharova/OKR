@@ -4,51 +4,151 @@
 <meta charset="UTF-8">
 <title>Бібліотека</title>
 <link rel="stylesheet" href="style.css">
-<script>
-    window.addEventListener("DOMContentLoaded", function () {
-        setTimeout(function () {
-            alert("👋 Ласкаво просимо до нашої бібліотеки!\nТут ви знайдете найкращі книги для душі й розвитку");
-        }, 300);
-        demonstrateDOMProperties();
-        addPar ();
-    });
-    
-</script>
+<style>
+    .behavior-highlight {
+        background: #fff3cd !important;
+        border-left: 4px solid #f0ad4e !important;
+        transition: background 0.3s;
+    }
+    #welcome-banner {
+        background: #1f3348;
+        color: white;
+        text-align: center;
+        padding: 12px;
+        font-size: 1em;
+        cursor: pointer;
+        transition: background 0.4s;
+    }
+    .quick-menu-btn {
+        padding: 10px 18px;
+        margin: 5px;
+        border: none;
+        border-radius: 8px;
+        background: #a1c1ed;
+        color: white;
+        font-size: 0.95em;
+        cursor: pointer;
+        transition: 0.3s;
+        font-family: 'Segoe UI', Arial, sans-serif;
+    }
+    .quick-menu-btn:hover {
+        background: #3498db;
+        transform: translateY(-2px);
+    }
+</style>
 </head>
-
 <body>
 
+
+<div id="welcome-banner" onclick="handleBannerClick()">
+    📚 Натисніть тут щоб отримати вітання від бібліотеки!
+</div>
+
 <div id="notice-banner" style="background:#3498db; color:white; text-align:center; padding:10px; font-size:0.95em;">
-        📢 Нові надходження: «Енеїда», «Кобзар», «Чорна рада»!
+    📢 Нові надходження: «Енеїда», «Кобзар», «Чорна рада»!
     <button onclick="removeNotice()" style="margin-left:15px; background:white; color:#3498db; border:none; border-radius:4px; padding:3px 10px; cursor:pointer;">✕ Закрити</button>
 </div>
-    
+
 <div id="bg-countdown" style="display:none; background:#0f3460; color:#8bd8f7; text-align:center; padding:8px; font-size:0.9em;"></div>
-    
+
 <div class="navbar">
     <a href="index.html">Головна</a>
     <a href="books.html">Книги</a>
     <a href="authors.html">Автори</a>
     <a href="contacts.html">Контакти</a>
 </div>
-    
 
 <div class="container">
-
 <h1 id="main-heading">Бібліотека</h1>
-
-<div class="card">
-<img src="https://miro.medium.com/1*6Jp3vJWe7VFlFHZ9WhSJng.jpeg">
+<div class="card" id="library-main-card">
+    <img src="https://miro.medium.com/1*6Jp3vJWe7VFlFHZ9WhSJng.jpeg">
+    <p style="text-align:center; color:#888; font-size:0.85em; margin-top:8px;">Наведіть мишу на картку — спостерігайте за подіями у консолі (F12)</p>
 </div>
 
 <h2>Новини бібліотеки</h2>
-
 <div class="card clearfix">
-<img class="float-img" src="https://images2.minutemediacdn.com/image/upload/c_fill,w_1200,ar_1:1,f_auto,q_auto,g_auto/shape/cover/sport/istock-157382617-d50ca7ad2b9932f4477247a3ff49e1a2.jpg">
-<p>Наша <b><span class="accent">міська бібліотека</span></b> є важливим культурним центром міста. Тут кожен відвідувач може знайти <i>цікаву книгу</i>, провести час у тихій атмосфері та отримати доступ до великої кількості літератури</p>
-<p>Фонд бібліотеки постійно поповнюється новими книгами, а також проводяться літературні зустрічі, тематичні виставки та освітні заходи</p>
-<p>Бібліотека містить художню літературу, наукові книги, енциклопедії, підручники та сучасні бестселери українських і світових авторів</p>
-<a class="btn" href="books.html#tablebooks">До таблиці книг</a>
+    <img class="float-img" src="https://images2.minutemediacdn.com/image/upload/c_fill,w_1200,ar_1:1,f_auto,q_auto,g_auto/shape/cover/sport/istock-157382617-d50ca7ad2b9932f4477247a3ff49e1a2.jpg">
+    <p>Наша <b><span class="accent">міська бібліотека</span></b> є важливим культурним центром міста. Тут кожен відвідувач може знайти <i>цікаву книгу</i>, провести час у тихій атмосфері та отримати доступ до великої кількості літератури</p>
+    <p>Фонд бібліотеки постійно поповнюється новими книгами, а також проводяться літературні зустрічі, тематичні виставки та освітні заходи</p>
+    <p>Бібліотека містить художню літературу, наукові книги, енциклопедії, підручники та сучасні бестселери українських і світових авторів</p>
+    <a class="btn" href="books.html#tablebooks">До таблиці книг</a>
+</div>
+
+<!-- mouseover/mouseout з event.target та event.relatedTarget -->
+<h2>Рекомендовані книги</h2>
+<p style="color:#888; font-size:0.9em; margin-bottom:5px;">Наводьте мишу на картки щоб побачити деталі</p>
+<div id="books-hover-section" style="display:flex; flex-wrap:wrap; gap:16px; justify-content:center; padding:20px; background:white; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.1); margin:20px 0;">
+
+    <div class="book-hover-card" data-title="Кобзар" data-author="Тарас Шевченко" data-genre="Поезія" data-year="1840"
+         style="width:140px; min-height:120px; padding:12px; border-radius:10px; background:#f0f8ff; border:2px solid #a1c1ed; cursor:pointer; text-align:center; box-sizing:border-box;">
+        <div style="font-size:2.5em; line-height:1;">📗</div>
+        <div style="font-weight:bold; font-size:0.9em; color:#1f3348; margin-top:6px;">Кобзар</div>
+        <div style="font-size:0.8em; color:#888;">Шевченко</div>
+    </div>
+
+    <div class="book-hover-card" data-title="Енеїда" data-author="Іван Котляревський" data-genre="Поема" data-year="1798"
+         style="width:140px; min-height:120px; padding:12px; border-radius:10px; background:#f0f8ff; border:2px solid #a1c1ed; cursor:pointer; text-align:center; box-sizing:border-box;">
+        <div style="font-size:2.5em; line-height:1;">📘</div>
+        <div style="font-weight:bold; font-size:0.9em; color:#1f3348; margin-top:6px;">Енеїда</div>
+        <div style="font-size:0.8em; color:#888;">Котляревський</div>
+    </div>
+
+    <div class="book-hover-card" data-title="Тіні забутих предків" data-author="Михайло Коцюбинський" data-genre="Повість" data-year="1911"
+         style="width:140px; min-height:120px; padding:12px; border-radius:10px; background:#f0f8ff; border:2px solid #a1c1ed; cursor:pointer; text-align:center; box-sizing:border-box;">
+        <div style="font-size:2.5em; line-height:1;">📙</div>
+        <div style="font-weight:bold; font-size:0.9em; color:#1f3348; margin-top:6px;">Тіні забутих предків</div>
+        <div style="font-size:0.8em; color:#888;">Коцюбинський</div>
+    </div>
+
+    <div class="book-hover-card" data-title="Чорна рада" data-author="Пантелеймон Куліш" data-genre="Роман" data-year="1857"
+         style="width:140px; min-height:120px; padding:12px; border-radius:10px; background:#f0f8ff; border:2px solid #a1c1ed; cursor:pointer; text-align:center; box-sizing:border-box;">
+        <div style="font-size:2.5em; line-height:1;">📕</div>
+        <div style="font-weight:bold; font-size:0.9em; color:#1f3348; margin-top:6px;">Чорна рада</div>
+        <div style="font-size:0.8em; color:#888;">Куліш</div>
+    </div>
+
+</div>
+
+<!-- Інформаційна панель що оновлюється при mouseover/mouseout -->
+<div id="book-info-panel" style="display:none; margin-top:-10px; margin-bottom:20px; padding:14px; background:#eaf4fb; border-left:4px solid #3498db; border-radius:8px;">
+    <span id="book-info-text" style="color:#1f3348; font-size:0.95em;"></span>
+    <span id="related-target-info" style="color:#888; font-size:0.82em; display:block; margin-top:4px;"></span>
+</div>
+
+<h2>Жанри бібліотеки</h2>
+<p style="color:#888; font-size:0.9em; margin-bottom:5px;">Натисніть на жанр щоб обрати його</p>
+<ul id="genre-list" class="card" style="list-style:none; padding:10px; cursor:pointer;">
+    <li style="padding:6px 10px;" data-genre="classic">📖 Класична література</li>
+    <li style="padding:6px 10px;" data-genre="detective">🔍 Детективи</li>
+    <li style="padding:6px 10px;" data-genre="fantasy">🚀 Фантастика</li>
+    <li style="padding:6px 10px;" data-genre="romance">💕 Романи</li>
+    <li style="padding:6px 10px;" data-genre="science">🔬 Наукова література</li>
+</ul>
+
+<h2>Швидкі дії</h2>
+<div id="quick-menu" class="card" style="display:flex; flex-wrap:wrap; gap:8px;">
+    <button class="quick-menu-btn" data-action="showBooks">📚 Книги</button>
+    <button class="quick-menu-btn" data-action="showAuthors">✍️ Автори</button>
+    <button class="quick-menu-btn" data-action="showContacts">📍 Контакти</button>
+    <button class="quick-menu-btn" data-action="showDialog">💬 Діалог</button>
+</div>
+
+<h2>Інтерактивні елементи</h2>
+<div class="card">
+    <div data-behavior="highlight"
+         style="padding:12px; border-radius:8px; cursor:pointer; margin-bottom:10px; border:2px solid #dfe9f3;">
+        💡 Натисніть щоб підсвітити цей блок 
+    </div>
+    <div data-behavior="expand"
+         data-target="hidden-schedule"
+         style="padding:12px; background:#eaf4fb; border-radius:8px; cursor:pointer; border-left:4px solid #3498db;">
+        📅 Натисніть щоб показати/приховати розклад бібліотеки 
+    </div>
+    <div id="hidden-schedule" style="display:none; margin-top:12px; padding:12px; background:#f8f9fa; border-radius:8px;">
+        <p><b>Пн–Пт:</b> 09:00 — 19:00</p>
+        <p><b>Субота:</b> 10:00 — 16:00</p>
+        <p><b>Неділя:</b> вихідний</p>
+    </div>
 </div>
 
 <h2>Рекомендації бібліотеки</h2>
@@ -58,17 +158,77 @@
 </div>
 
 <h2>Інтерактивні функції</h2>
-<div class="card" id="intcard" style="display:flex; flex-wrap:wrap; gap:12px; align-items:center;">
+<div class="card" style="display:flex; flex-wrap:wrap; gap:12px; align-items:center;">
     <button class="btn" onclick="dialogWithUser()" style="background:#1f3348;">💬 Діалог з читачем</button>
     <button class="btn" onclick="showDeveloperInfo('Сахарова','Владислава')" style="background:#8e44ad;">👤 Про розробника</button>
-    <button class="btn" onclick="compareStrings('Класична література','Детективи')" style="background:#e67e22;">🔤 Порівняти рядки</button>
+    <button class="btn" onclick="compareStrings()" style="background:#e67e22;">🔤 Порівняти рядки</button>
     <button class="btn" onclick="changeBgFor30Sec()" style="background:#2c3e50;">🌙 Нічний режим (30 сек)</button>
     <button class="btn" onclick="location.href='books.html'" style="background:#3498db;">📚 Перейти до книг</button>
 </div>
 
-<p class="btn" style="background: #6e85a2;"><a href="#main-heading">Повернутись на початок сторінки</a></p>
+<p class="btn" style="background:#6e85a2;"><a href="#main-heading">Повернутись на початок сторінки</a></p>
 </div>
 
 <script src="script.js"></script>
+<script>
+    /**
+     * Обробник через атрибут onclick
+     * Викликається при кліку на #welcome-banner.
+     */
+    function handleBannerClick() {
+        const banner = document.getElementById("welcome-banner");
+        banner.style.background = "#27ae60";
+        banner.textContent = "🎉 Дякуємо що залишились з нами! Гарного читання.";
+    }
+
+
+// mouseover та mouseout з event.target і event.relatedTarget
+const hoverSection = document.getElementById("books-hover-section");
+if (hoverSection) {
+
+    hoverSection.addEventListener("mouseover", function(event) {
+        const card = event.target.closest(".book-hover-card");
+        if (!card) return;
+
+        card.style.background = "#3498db";
+        card.style.borderColor = "#1f3348";
+        card.style.boxShadow = "0 8px 20px rgba(52,152,219,0.4)";
+        card.querySelectorAll("div").forEach(d => d.style.color = "white");
+
+        // Показуємо інформаційну панель
+        const panel = document.getElementById("book-info-panel");
+        const infoText = document.getElementById("book-info-text");
+        const relatedInfo = document.getElementById("related-target-info");
+
+        panel.style.display = "block";
+        infoText.textContent = `📖 ${card.dataset.title} | ✍️ ${card.dataset.author} | 🏷 ${card.dataset.genre} | 📅 ${card.dataset.year}`;
+
+
+        console.log("mouseover → event.target:", event.target);
+        console.log("mouseover → event.relatedTarget:", event.relatedTarget);
+    });
+
+    hoverSection.addEventListener("mouseout", function(event) {
+        const card = event.target.closest(".book-hover-card");
+        if (!card) return;
+
+        if (card.contains(event.relatedTarget)) return;
+
+        // Скидаємо стиль
+        card.style.background = "#f0f8ff";
+        card.style.borderColor = "#a1c1ed";
+        card.style.boxShadow = "";
+        card.querySelectorAll("div").forEach(d => d.style.color = "");
+
+        // Ховаємо панель якщо миша пішла поза всю секцію
+        if (!hoverSection.contains(event.relatedTarget)) {
+            document.getElementById("book-info-panel").style.display = "none";
+        }
+
+        console.log("mouseout → event.target:", event.target);
+        console.log("mouseout → event.relatedTarget:", event.relatedTarget);
+    });
+}
+</script>
 </body>
 </html>

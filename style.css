@@ -4,14 +4,13 @@ body {
     color: #333;
     line-height: 1.6;
 }
-
 .container {
     width: 90%;
     max-width: 1100px;
     margin: auto;
     padding: 20px;
 }
-/*Навігація*/
+/* Навігація */
 .navbar {
     background: #1f3348;
     padding: 15px;
@@ -21,7 +20,6 @@ body {
     top: 0;
     z-index: 1000;
 }
-
 .navbar a {
     color: white;
     text-decoration: none;
@@ -32,23 +30,20 @@ body {
     transition: 0.3s;
     display: inline-block;
 }
-
 .navbar a:hover {
     background: #8bd8f7;
     transform: translateY(-2px);
 }
-/*Заголовки*/
+/* Заголовки */
 h1 {
     text-align: center;
     margin: 20px 0;
     color: #2c3e50;
 }
-
 h2 {
     margin-top: 25px;
     color: #29295d;
 }
-
 .card {
     background: white;
     padding: 20px;
@@ -58,33 +53,27 @@ h2 {
     overflow: hidden;
     box-sizing: border-box;
 }
-
 .card h3:first-child {
     margin-top: 0;
 }
-
 img {
     max-width: 100%;
     border-radius: 10px;
 }
-
 ul, ol, dl {
     margin: 15px 0;
     padding-left: 20px;
 }
-
 ul {
     list-style: square;
 }
-
 ol {
     list-style: upper-roman;
 }
-
 #tablebooks {
     color: rgb(24, 10, 74);
 }
-/*Таблиці*/
+/* Таблиці */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -93,23 +82,19 @@ table {
     border-radius: 10px;
     overflow: hidden;
 }
-
 th {
     background: #3498db;
     color: white;
     padding: 10px;
 }
-
 td {
     padding: 10px;
     text-align: center;
 }
-
 tr:nth-child(even) {
     background: #f2f2f2;
 }
-
-/*Кнопки*/
+/* Кнопки */
 .btn {
     display: inline-block;
     margin-top: 10px;
@@ -123,77 +108,61 @@ tr:nth-child(even) {
     cursor: pointer;     
     font-size: 0.95em;
 }
-
 .btn:hover {
     background: #3cb3d7;
 }
-
-/*Important*/
+/* Important */
 .highlight {
     color: red !important;
 }
-
-/*ЛР4*/
+/* ЛР4 */
 .card img {
     border: 3px solid #a1c1ed;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
-
 .card > table {
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
-
-.container > .btn{
+.container > .btn {
     background: #7d9dce;
     color: white;
 }
-
 h2 + .card {
     border: 2px solid #121f68;
 }
-
-/*ЛР5*/
+/* ЛР5 */
 a:visited {
     color: #443e46;
 }
-
 a:link {
     color: #7ab2eb;
 }
-
 a:hover {
     color: #150d46;
 }
-
 a:active {
     color: red;
 }
-
 .card p:first-child {
     color: #150c69;
 }
-
 h1::before {
     content: "📚 ";
 }
-
 h1::after {
     content: " 📖";
 }
-
 .accent {
     color: #505659;
     background-color: #9fd4f5;
     font-weight: bold;
 }
-
 .float-img {
     float: left;
     width: 280px;
     margin: 0 20px 10px 0;
     border-radius: 10px;
 }
-  
 .clearfix::after {
     content: "";
     display: block;
@@ -211,4 +180,18 @@ h1::after {
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(8px); }
     to   { opacity: 1; transform: translateY(0); }
+}
+#genre-list li {
+    padding: 8px 12px;
+    border-radius: 6px;
+    margin: 4px 0;
+    transition: background 0.2s, color 0.2s;
+}
+#genre-list li:hover {
+    background: #eaf4fb;
+}
+#genre-list li.genre-active {
+    background: #3498db;
+    color: white;
+    font-weight: bold;
 }
